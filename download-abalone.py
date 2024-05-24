@@ -12,4 +12,8 @@ from ucimlrepo import fetch_ucirepo
 
 abalone = fetch_ucirepo(id=1)
 
-abalone.data.original.to_csv(path_or_buf="data/abalone.tsv", index=False, sep="\t")
+csv_options = {"index": False, "sep": "\t"}
+
+abalone.data.original.to_csv(path_or_buf="data/abalone.tsv", **csv_options)
+abalone.data.features.to_csv(path_or_buf="data/abalone-features.tsv", **csv_options)
+abalone.data.targets.to_csv(path_or_buf="data/abalone-targets.tsv", **csv_options)
